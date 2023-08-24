@@ -85,7 +85,7 @@ def bookingView(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("https:aweville.onrender.com/success")
+        return HttpResponseRedirect("https:aweville.onrender.com/success")
     
     # ---FOR EMAIL SUBSCRIBING---#
     subscriberForm = SubscriberForm(request.POST)
@@ -116,7 +116,7 @@ def SpecialBookingView(request, Title, value):
             query = Booking.objects.get(CheckIn=Checkin, CheckOut=Checkout)
             query.RoomTitle = Title
             query.save()
-            return HttpResponseRedirect('https:aweville.onrender.com/success')
+        return HttpResponseRedirect('https:aweville.onrender.com/success')
         
     
     # ---FOR EMAIL SUBSCRIBING---#
