@@ -85,7 +85,12 @@ def bookingView(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-        return HttpResponseRedirect("https:aweville.onrender.com/success")
+
+            subscriberForm = SubscriberForm(request.POST)
+            if request.method == 'POST':
+                if subscriberForm.is_valid():
+                    subscriberForm.save()
+        return render(request, "alert.html", {'subscriberForm': subscriberForm })
     
     # ---FOR EMAIL SUBSCRIBING---#
     subscriberForm = SubscriberForm(request.POST)
@@ -105,7 +110,6 @@ def SpecialBookingView(request, Title, value):
     form = BookingForm(request.POST)
    
     if request.method == 'POST':
-        print("Posted")
         if form.is_valid():
             print("valid")
             form.save()
@@ -116,7 +120,12 @@ def SpecialBookingView(request, Title, value):
             query = Booking.objects.get(CheckIn=Checkin, CheckOut=Checkout)
             query.RoomTitle = Title
             query.save()
-        return HttpResponseRedirect('https:aweville.onrender.com/success')
+
+            subscriberForm = SubscriberForm(request.POST)
+            if request.method == 'POST':
+                if subscriberForm.is_valid():
+                    subscriberForm.save()
+        return render(request, "alert.html", {'subscriberForm': subscriberForm })
         
     
     # ---FOR EMAIL SUBSCRIBING---#
