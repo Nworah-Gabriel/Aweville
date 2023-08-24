@@ -3,6 +3,9 @@
         display: flex;
         flex-direction: row-reverse;
     }
+    #image{
+        height: 100px;
+    }
     
 }
 
